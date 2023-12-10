@@ -543,11 +543,12 @@ playlists = {"playlist1":0,"playlist2":1,"playlist3":2,"playlist4":3, "playlist5
 playlist_options = [{'label': key, 'value': value} for key, value in playlists.items()]
 
 # Logo de Spotify
-logo = 'logo.png'  
+logo = 'data/logo.png'  
 encoded_logo = base64.b64encode(open(logo, 'rb').read()).decode('ascii')
 
 # Dash APP
 app = dash.Dash(__name__)
+server = app.server
 
 # Layout de la aplicación
 app.layout = html.Div(children=[
