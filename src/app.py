@@ -644,16 +644,12 @@ app.layout = html.Div(children=[
     [Input('playlist-dropdown', 'value')]
 )
 def update_table(selected_playlist):
-    print("Selected Playlist:", selected_playlist)
     
     if selected_playlist is None:
-        print("No playlist selected.")
         return pd.DataFrame().to_dict('records'), []
 
     filtered_data = top_songs[top_songs['cluster'] == selected_playlist]
     filtered_data  = filtered_data[['artistName', 'trackName']]
-    print("Filtered Data:")
-    print(filtered_data)
     
     columns = [{"name": col, "id": col} for col in filtered_data.columns]
     
